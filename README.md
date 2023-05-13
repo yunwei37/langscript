@@ -27,9 +27,9 @@ base_function()
 ```
 
 ```bash
-$ python -m langscript
+$ python -m langscript yourscript.ls
 #or
-$ langscript
+$ langscript yourscript.ls
 ```
 
 ## Development
