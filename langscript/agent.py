@@ -29,10 +29,12 @@ def run(code: str):
     """
     print(f"Running code: {code}")
     # First, let's load the language model we're going to use to control the agent.
-    llm = OpenAI(temperature=0)
-    # Next, let's load some tools to use. Note that the `llm-math` tool uses an LLM, so we need to pass that in.
+    llm = OpenAI(temperature=0, model_name="gpt-3.5-turbo", client=None)
+    # Next, let's load some tools to use.
+    # Note that the `llm-math` tool uses an LLM, so we need to pass that in.
     tools = load_tools(["serpapi", "llm-math"], llm=llm)
-    # Finally, let's initialize an agent with the tools, the language model, and the type of agent we want to use.
+    # Finally, let's initialize an agent with the tools, the language model,
+    # and the type of agent we want to use.
     agent = initialize_agent(
         tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
     # Now let's test it out!

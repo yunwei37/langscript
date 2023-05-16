@@ -1,3 +1,6 @@
+"""_summary_
+    Parser for the langscript language.
+"""
 
 def parse_input(code: str) -> str:
     """Parse the input code.

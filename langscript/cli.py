@@ -8,8 +8,7 @@ Be creative! do whatever you want!
 - Import things from your .base module
 """
 import argparse
-import langscript.agent as agent
-
+from langscript import agent
 
 def main():
     """
