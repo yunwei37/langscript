@@ -7,7 +7,11 @@ Be creative! do whatever you want!
 - Start a web application
 - Import things from your .base module
 """
-def main():  # pragma: no cover
+import argparse
+import langscript.agent as agent
+
+
+def main():
     """
     The main function executes on commands:
     `python -m langscript` and `$ langscript `.
@@ -23,4 +27,21 @@ def main():  # pragma: no cover
         * List all available tasks
         * Run an application (Flask, FastAPI, Django, etc.)
     """
-    print("This will do something")
+    parser = argparse.ArgumentParser(description="Langscript Interpreter")
+    parser.add_argument("filename", nargs="?",
+                        help="Langscript file to execute")
+    parser.add_argument("--version", action="version",
+                        version="Langscript 1.0")
+
+    args = parser.parse_args()
+
+    if args.filename:
+        with open(args.filename, "r") as file:
+            code = file.read()
+        agent.run(code)
+    else:
+        while True:
+            user_input = input(">>> ")
+            if user_input == "exit":
+                break
+            agent.run(user_input)

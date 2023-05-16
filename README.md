@@ -79,6 +79,14 @@ pip install langscript
 
 ## Usage
 
+Setup your OpenAI API key:
+
+```bash
+export OPENAI_API_KEY="..."
+```
+
+Using it in your script:
+
 ```py
 from langscript import BaseClass
 from langscript import base_function
@@ -86,6 +94,8 @@ from langscript import base_function
 BaseClass().base_method()
 base_function()
 ```
+
+Run from bash:
 
 ```bash
 $ python -m langscript yourscript.ls

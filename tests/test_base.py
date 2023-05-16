@@ -1,4 +1,4 @@
-from langscript.base import NAME
+from langscript.agent import NAME
 
 
 def test_base():
